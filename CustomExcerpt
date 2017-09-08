@@ -8,6 +8,7 @@
 */
 
 
+if( function_exists( 'cut_Excerpt' ) ){
 
 function cut_Excerpt($additional_cNumber=45, $additional_part='Read More') {
 
@@ -27,4 +28,4 @@ function cut_Excerpt($additional_cNumber=45, $additional_part='Read More') {
 
    return($unkown_custom_excerpt);
 
-}
+}};
