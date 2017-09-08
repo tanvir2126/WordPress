@@ -1,0 +1,30 @@
+<?php
+
+
+/*
+ *USE IT:---
+ *show html page in this style
+ *<p> <?php echo cut_Excerpt(6,'Read More'); ?></p>
+*/
+
+
+
+function cut_Excerpt($additional_cNumber=45, $additional_part='Read More') {
+
+
+	$add_cNumber = $additional_cNumber + 1;
+
+	$unkown_custom_excerpt = explode(' ', strip_tags( get_the_content() ), $add_cNumber);
+
+	if( count($unkown_custom_excerpt) >= $add_cNumber ) {
+	array_pop($unkown_custom_excerpt);//ur last all content deleted
+
+	}
+	array_push($unkown_custom_excerpt, '<a href="'.get_the_permalink().'">'.$additional_part.'</a>');//last content add by it
+	$unkown_custom_excerpt = implode(' ', $unkown_custom_excerpt);//for show the content and space it
+
+
+
+   return($unkown_custom_excerpt);
+
+}
